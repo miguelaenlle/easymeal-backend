@@ -55,6 +55,18 @@ const getRecipes = async (request, response) => {
             }
         }
 
+        if (minCalories) {
+            if (recipe.calories < minCalories) {
+                continue
+            }
+        }
+
+        if (maxCalories) {
+            if (recipe.calories > maxCalories) {
+                continue
+            }
+        }
+
         results.push({
             recipe,
             ingredientCount,
