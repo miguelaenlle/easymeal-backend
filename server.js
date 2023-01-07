@@ -1,10 +1,10 @@
+require("dotenv").config()
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
 const recipesRouter = require("./routes/recipes-route");
-
-require("dotenv").config();
+const port = process.env.PORT || 3200;
 
 mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true
@@ -24,6 +24,6 @@ db.once("open", () => {
 app.use("/recipes", recipesRouter);
 
 
-app.listen(5000, () => {
+app.listen(port, () => {
     console.log("Server running on port 5000");
 })
