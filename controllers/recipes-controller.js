@@ -66,6 +66,10 @@ const getRecipes = async (request, response) => {
                 continue
             }
         }
+        
+        if (recipe.calories === 0) {
+            continue;
+        }
 
         results.push({
             recipe,
