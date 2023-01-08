@@ -66,14 +66,14 @@ const getRecipes = async (request, response) => {
                 continue
             }
         }
-        
+
         if (recipe.calories === 0) {
             continue;
         }
 
         results.push({
             recipe,
-            ingredientCount,
+            ingredientCount: ingredientList.length > 0 ? ingredientCount : 0,
             totalIngredients,
             pctAvailable: ingredientCount / totalIngredients,
             score: recipe[scoreCol]
